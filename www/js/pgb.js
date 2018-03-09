@@ -16,13 +16,13 @@ navigator.contacts.find(fields, onSuccess, onError, options);
 
 function onSuccess(contacts) {
     for (var i=0; i<contacts.length; i++) {
-        console.log("Display Name = " + contacts[i].displayName);
+        alert("Display Name = " + contacts[i].displayName);
         if(null != contacts[i].phoneNumbers)
             {
                 for(var j=0;j<contacts[i].phoneNumbers.length;j++)
                 {
-                      console.log("Name = " + contacts[i].displayName);
-                      console.log("Phone = " + contacts[i].phoneNumber[j].value);
+                      alert("Name = " + contacts[i].displayName + "\n" + 
+					  "Phone = " + contacts[i].phoneNumber[j].value);
 
                 }
             }
