@@ -7,13 +7,26 @@ function onDeviceReady() {
 }
 
 function displayContacts() {
+
 function onSuccess(contacts) {
-    alert('Found ' + contacts.length + ' contacts.');
-}
+    for (var i = 0; i < contacts.length; i++) {
+        for (var j = 0; j < contacts[i].addresses.length; j++) {
+            alert("Name: "         + contacts[i].addresses[j].pref          + "\n" +
+                "Phone number: "           + contacts[i].addresses[j].type);
+        }
+    }
+};
 
 function onError(contactError) {
     alert('onError!');
-}
+};
+
+// find all contacts
+var options = new ContactFindOptions();
+options.filter = "";
+options.multiple = true;
+var filter = ["displayName", "addresses"];
+navigator.contacts.find(filter, onSuccess, onError, options);
 }
 
 function detectMovement() {
