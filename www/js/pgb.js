@@ -8,25 +8,26 @@ function onDeviceReady() {
 
 function displayContacts() {
 
-function onSuccess(contacts) {
-    for (var i = 0; i < contacts.length; i++) {
-        for (var j = 0; j < contacts[i].addresses.length; j++) {
-            alert("Name: "         + contacts[i].addresses[j].pref          + "\n" +
-                "Phone number: "           + contacts[i].addresses[j].type);
-        }
-    }
-};
-
-function onError(contactError) {
-    alert('onError!');
-};
-
-// find all contacts
 var options = new ContactFindOptions();
-options.filter = "";
-options.multiple = true;
-var filter = ["displayName", "addresses"];
-navigator.contacts.find(filter, onSuccess, onError, options);
+options.multiple=true; 
+var fields = ["displayName", "phoneNumbers"];
+navigator.contacts.find(fields, onSuccess, onError, options);
+
+
+function onSuccess(contacts) {
+    for (var i=0; i<contacts.length; i++) {
+        console.log("Display Name = " + contacts[i].displayName);
+        if(null != contacts[i].phoneNumbers)
+            {
+                for(var j=0;j<contacts[i].phoneNumbers.length;j++)
+                {
+                      console.log("Name = " + contacts[i].displayName);
+                      console.log("Phone = " + contacts[i].phoneNumber[j].value);
+
+                }
+            }
+    }
+}
 }
 
 function detectMovement() {
