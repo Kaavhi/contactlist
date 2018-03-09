@@ -8,25 +8,22 @@ function onDeviceReady() {
 
 function displayContacts() {
 
-var options = new ContactFindOptions();
-options.multiple=true; 
-var fields = ["displayName", "phoneNumbers"];
-navigator.contacts.find(fields, onSuccess, onError, options);
-
-
 function onSuccess(contacts) {
-    for (var i=0; i<contacts.length; i++) {
-        alert("Display Name = " + contacts[i].displayName);
-        if(null != contacts[i].phoneNumbers)
-            {
-                for(var j=0;j<contacts[i].phoneNumbers.length;j++)
-                {
-                      alert("Name = " + contacts[i].displayName + "\n" + 
-					  "Phone = " + contacts[i].phoneNumber[j].value);
-
-                }
-            }
+    for (var i = 0; i < contacts.length; i++) {
+         alert("Name = " + contacts[i].displayName + "\n" + 
+					  "Phone = " + contacts[i].phoneNumber[i].value);
     }
+};
+
+function onError(contactError) {
+    alert('onError!');
+};
+
+var options = new ContactFindOptions();
+options.filter = "";
+options.multiple = true;
+filter = ["displayName", "phoneNumbers"];
+navigator.contacts.find(filter, onSuccess, onError, options);
 }
 }
 
