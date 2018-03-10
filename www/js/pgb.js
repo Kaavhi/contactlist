@@ -16,6 +16,7 @@ function onSuccess(contacts) {
                 "Phone number: "        + contacts[i].phoneNumber[i].value);
         }
     }
+	}
 };
 
 function onError(contactError) {
@@ -26,7 +27,6 @@ var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
 filter = ["displayName", "phoneNumbers"];
-alert('onError!');
 navigator.contacts.find(filter, onSuccess, onError, options);
 }
 }
