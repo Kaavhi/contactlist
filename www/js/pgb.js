@@ -11,25 +11,30 @@ function onDeviceReady() {
 	navigator.contacts.find(filter, onSuccessContacts, onErrorContacts, options);
 }
 
-function onSuccessContacts(contacts) {
-	 alert("cos\n");
+function displayContacts() {
+function onSuccess(contacts) {
+alert("Suawek\n\n");
+alert("Liczba kontaktow: "         + contacts.length          + "\n\n");
+
     for (var i = 0; i < contacts.length; i++) {
-        for (var j = 0; j < contacts[i].addresses.length; j++) {
-            alert("Pref: "         + contacts[i].addresses[j].pref          + "\n" +
-                "Type: "           + contacts[i].addresses[j].type          + "\n" +
-                "Formatted: "      + contacts[i].addresses[j].formatted     + "\n" +
-                "Street Address: " + contacts[i].addresses[j].streetAddress + "\n" +
-                "Locality: "       + contacts[i].addresses[j].locality      + "\n" +
-                "Region: "         + contacts[i].addresses[j].region        + "\n" +
-                "Postal Code: "    + contacts[i].addresses[j].postalCode    + "\n" +
-                "Country: "        + contacts[i].addresses[j].country);
+        for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+            alert("Name: "         + contacts[i].displayName          + "\n" +
+                "Phone number: "        + contacts[i].phoneNumber[j].value);
         }
     }
 };
- 
-function onErrorContacts(contactError) {
+
+function onError(contactError) {
     alert('onError!');
 };
+
+var options = new ContactFindOptions();
+options.filter = "";
+options.multiple = true;
+filter = ["displayName", "phoneNumbers"];
+navigator.contacts.find(filter, onSuccess, onError, options);
+}
+
 
 function detectMovement() {
 function onSuccess(acceleration) {
