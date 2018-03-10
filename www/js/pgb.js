@@ -4,11 +4,6 @@ function init() {
 
 function onDeviceReady() {
 	navigator.notification.beep(1);
-	var options = new ContactFindOptions();
-	options.filter = "";
-	options.multiple = true;
-	Var filter = ["displayName", "addresses"];
-	navigator.contacts.find(filter, onSuccessContacts, onErrorContacts, options);
 }
 
 function displayContacts() {
