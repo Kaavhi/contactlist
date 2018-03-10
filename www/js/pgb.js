@@ -26,6 +26,7 @@ var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
 filter = ["displayName", "phoneNumbers"];
+alert('onError!');
 navigator.contacts.find(filter, onSuccess, onError, options);
 }
 }
