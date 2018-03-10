@@ -8,7 +8,6 @@ function onDeviceReady() {
 
 function displayContacts() {
 function onSuccess(contacts) {
-alert("Suawek\n\n");
 alert("Liczba kontaktow: "         + contacts.length          + "\n\n");
 
     for (var i = 0; i < contacts.length; i++) {
