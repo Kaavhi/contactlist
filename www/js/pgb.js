@@ -6,23 +6,37 @@ function onDeviceReady() {
 	navigator.notification.beep(1);
 }
 
-function displayContacts() {
-var options      = new ContactFindOptions();
-options.filter   = "";
-options.multiple = true;
-options.desiredFields = [navigator.contacts.fieldType.id];
-options.hasPhoneNumber = true;
-var fields       = [navigator.contacts.fieldType.displayName];
-navigator.contacts.find(fields, onSuccess, onError, options);
-}
-
-function onSuccess(contacts) {
-    alert('Found ' + contacts.length + ' contacts.');
+function onSuccessContacts(contacts) {
+    for (var i = 0; i < contacts.length; i++) {
+        for (var j = 0; j < contacts[i].addresses.length; j++) {
+            alert("Pref: "         + contacts[i].addresses[j].pref          + "\n" +
+                "Type: "           + contacts[i].addresses[j].type          + "\n" +
+                "Formatted: "      + contacts[i].addresses[j].formatted     + "\n" +
+                "Street Address: " + contacts[i].addresses[j].streetAddress + "\n" +
+                "Locality: "       + contacts[i].addresses[j].locality      + "\n" +
+                "Region: "         + contacts[i].addresses[j].region        + "\n" +
+                "Postal Code: "    + contacts[i].addresses[j].postalCode    + "\n" +
+                "Country: "        + contacts[i].addresses[j].country);
+        }
+    }
 };
  
-function onError(contactError) {
+function onErrorContacts(contactError) {
     alert('onError!');
-}; 
+};
+ 
+
+
+function displayContacts() {
+
+	// find all contacts 
+	var options = new ContactFindOptions();
+	options.filter = "";
+	options.multiple = true;
+	Var filter = ["displayName", "addresses"];
+	navigator.contacts.find(filter, onSuccessContacts, onErrorContacts, options);
+	
+}
 
 function detectMovement() {
 function onSuccess(acceleration) {
