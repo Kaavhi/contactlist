@@ -11,7 +11,7 @@ function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
         for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
             alert("Name: "         + contacts[i].displayName          + "\n" +
-                "Phone number: "        + contacts[i].phoneNumber[j].value);
+                "Phone number: "        + contacts[i].phoneNumbers[j].value);
         }
     }
 };
