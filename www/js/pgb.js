@@ -1,5 +1,7 @@
 function init() {
 	document.addEventListener("deviceready",onDeviceReady, false);
+	document.addEventListener("deviceready", onDeviceReadyy, false);
+
 }
 
 function onDeviceReady() {
@@ -29,11 +31,8 @@ function onErrorContacts(contactError) {
 
 
 function displayContacts() {
-document.addEventListener("deviceready", onDeviceReady, false);
-
- // Cordova is ready
- //
- function onDeviceReady() {
+	
+ function onDeviceReadyy() {
 	// find all contacts 
 	var options = new ContactFindOptions();
 	options.filter = "";
