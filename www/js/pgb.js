@@ -9,9 +9,12 @@ function onDeviceReady() {
 function displayContacts() {
 
 function onSuccess(contacts) {
+	function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
-         alert("Name = " + contacts[i].displayName + "\n" + 
-					  "Phone = " + contacts[i].phoneNumber[i].value);
+        for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+            alert("Name: "         + contacts[i].displayName          + "\n" +
+                "Phone number: "        + contacts[i].phoneNumber[i].value);
+        }
     }
 };
 
