@@ -8,12 +8,9 @@ function onDeviceReady() {
 
 function displayContacts() {
 function onSuccess(contacts) {
-    for (var i = 0; i < contacts.length; i++) {
-        for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-            alert("Name: "         + contacts[i].displayName          + "\n" +
-                "Phone number: "        + contacts[i].phoneNumbers[j].value);
-        }
-    }
+for (var i = 0; i < contacts.length; i++) {
+	alert("Name: "         + contacts[i].displayName          + "\n" );
+}
 };
 
 function onError(contactError) {
@@ -23,7 +20,7 @@ function onError(contactError) {
 var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
-filter = ["displayName", "phoneNumbers"];
+filter = ["displayName"];
 navigator.contacts.find(filter, onSuccess, onError, options);
 }
 
