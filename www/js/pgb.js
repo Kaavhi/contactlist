@@ -8,27 +8,9 @@ function onDeviceReady() {
 
 function displayContacts() {
     alert('onError!');
+	navigator.notification.alert("nnn");
 
-function onSuccess(contacts) {
-	function onSuccess(contacts) {
-    for (var i = 0; i < contacts.length; i++) {
-        for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-            alert("Name: "         + contacts[i].displayName          + "\n" +
-                "Phone number: "        + contacts[i].phoneNumber[j].value);
-        }
-    }
-	}
-};
 
-function onError(contactError) {
-    alert('onError!');
-};
-
-var options = new ContactFindOptions();
-options.filter = "";
-options.multiple = true;
-filter = ["displayName", "phoneNumbers"];
-navigator.contacts.find(filter, onSuccess, onError, options);
 }
 }
 
