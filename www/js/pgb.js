@@ -7,6 +7,8 @@ function onDeviceReady() {
 }
 
 function displayContacts() {
+		alert("Liczba kontaktow: " + contacts.length + "\n\n");
+	
 function onSuccess(contacts) {
 		alert("Liczba kontaktow: "         + contacts.length          + "\n\n");
 		alert("Liczba numerow: "         + contacts.phoneNumbers.length          + "\n\n");
