@@ -8,11 +8,8 @@ function onDeviceReady() {
 
 function displayContacts() {
 function onSuccess(contacts) {
-    for (var i = 0; i < contacts.length; i++) {
-        for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-	alert("Nazwa: "         + contacts[i].displayName          + "\n\n");
-	}
-	}
+		alert("Liczba kontaktow: "         + contacts.length          + "\n\n");
+		alert("Liczba numerow: "         + contacts.phoneNumbers.length          + "\n\n");
 };
 
 function onError(contactError) {
