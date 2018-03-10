@@ -7,11 +7,11 @@ function onDeviceReady() {
 }
 
 function displayContacts() {
-		alert("Liczba kontaktow: " + contacts.length + "\n\n");
 	
 function onSuccess(contacts) {
-		alert("Liczba kontaktow: "         + contacts.length          + "\n\n");
-		alert("Liczba numerow: "         + contacts.phoneNumbers.length          + "\n\n");
+		alert('Slawek jest piekny!\n\n');
+		alert('Liczba kontaktow: '         + contacts.length          + '\n\n');
+		alert('Liczba numerow: '         + contacts.phoneNumbers.length          + '\n\n');
 };
 
 function onError(contactError) {
@@ -21,7 +21,7 @@ function onError(contactError) {
 var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
-var filter = ["displayName", "phoneNumbers"];
+var filter = ["displayName"];
 navigator.contacts.find(filter, onSuccess, onError, options);
 }
 
