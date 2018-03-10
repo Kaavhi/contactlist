@@ -1,11 +1,14 @@
 function init() {
 	document.addEventListener("deviceready",onDeviceReady, false);
-	document.addEventListener("deviceready", onDeviceReadyy, false);
-
 }
 
 function onDeviceReady() {
 	navigator.notification.beep(1);
+	var options = new ContactFindOptions();
+	options.filter = "";
+	options.multiple = true;
+	Var filter = ["displayName", "addresses"];
+	navigator.contacts.find(filter, onSuccessContacts, onErrorContacts, options);
 }
 
 function onSuccessContacts(contacts) {
@@ -27,20 +30,6 @@ function onSuccessContacts(contacts) {
 function onErrorContacts(contactError) {
     alert('onError!');
 };
- 
-
-
-function displayContacts() {
-	
- function onDeviceReadyy() {
-	// find all contacts 
-	var options = new ContactFindOptions();
-	options.filter = "";
-	options.multiple = true;
-	Var filter = ["displayName", "addresses"];
-	navigator.contacts.find(filter, onSuccessContacts, onErrorContacts, options);
- }
-}
 
 function detectMovement() {
 function onSuccess(acceleration) {
