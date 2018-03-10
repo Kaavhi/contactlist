@@ -8,10 +8,7 @@ function onDeviceReady() {
 
 function displayContacts() {
 function onSuccess(contacts) {
-for (var i = 0; i < contacts.length; i++) {
-	alert("Name: "         + contacts[i].displayName          + "\n" );
-
-}
+    alert('Found ' + contacts.length + ' contacts.');
 };
 
 function onError(contactError) {
