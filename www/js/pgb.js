@@ -12,7 +12,6 @@ function displayContacts() {
 
 
 }
-}
 
 function detectMovement() {
 function onSuccess(acceleration) {
