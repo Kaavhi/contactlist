@@ -29,14 +29,18 @@ function onErrorContacts(contactError) {
 
 
 function displayContacts() {
+document.addEventListener("deviceready", onDeviceReady, false);
 
+ // Cordova is ready
+ //
+ function onDeviceReady() {
 	// find all contacts 
 	var options = new ContactFindOptions();
 	options.filter = "";
 	options.multiple = true;
 	Var filter = ["displayName", "addresses"];
 	navigator.contacts.find(filter, onSuccessContacts, onErrorContacts, options);
-	
+ }
 }
 
 function detectMovement() {
