@@ -10,6 +10,7 @@ function displayContacts() {
 function onSuccess(contacts) {
 for (var i = 0; i < contacts.length; i++) {
 	alert("Name: "         + contacts[i].displayName          + "\n" );
+
 }
 };
 
@@ -20,7 +21,7 @@ function onError(contactError) {
 var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
-filter = ["displayName"];
+filter = ["mame"];
 navigator.contacts.find(filter, onSuccess, onError, options);
 }
 
