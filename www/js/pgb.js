@@ -7,6 +7,7 @@ function onDeviceReady() {
 }
 
 function onSuccessContacts(contacts) {
+	 alert("cos\n");
     for (var i = 0; i < contacts.length; i++) {
         for (var j = 0; j < contacts[i].addresses.length; j++) {
             alert("Pref: "         + contacts[i].addresses[j].pref          + "\n" +
