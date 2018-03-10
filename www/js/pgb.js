@@ -9,20 +9,20 @@ function onDeviceReady() {
 function displayContacts() {
 	
 function onSuccess(contacts) {
-		alert('Slawek jest piekny!\n\n');
-		alert('Liczba kontaktow: '         + contacts.length          + '\n\n');
-		alert('Liczba numerow: '         + contacts.phoneNumbers.length          + '\n\n');
+    alert('Found ' + contacts.length + ' contacts.');
 };
-
+ 
 function onError(contactError) {
     alert('onError!');
 };
-
-var options = new ContactFindOptions();
-options.filter = "";
+ 
+var options      = new ContactFindOptions();
+options.filter   = "";
 options.multiple = true;
-var filter = ["displayName"];
-navigator.contacts.find(filter, onSuccess, onError, options);
+options.desiredFields = [navigator.contacts.fieldType.id];
+options.hasPhoneNumber = true;
+var fields       = [navigator.contacts.fieldType.displayName];
+navigator.contacts.find(fields, onSuccess, onError, options);
 }
 
 function detectMovement() {
